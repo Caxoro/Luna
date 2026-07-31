@@ -8,5 +8,5 @@ mensagem = ""
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 if mensagem != "":
     messages.append(mensagem)
-    container.chat_message("user").write(messages[0])
+    mag += container.chat_message("user").write(messages[0])
     
