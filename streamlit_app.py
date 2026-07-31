@@ -25,6 +25,6 @@ if mensagem:
         )
     for ai in st.session_state.luna_messages:
         st.session_state.luna_messages.append(interaction.output_text)
-        st.chat_message("ai").write(interaction.output_text[0])
+        st.chat_message("ai").write(interaction.output_text)
     
     
