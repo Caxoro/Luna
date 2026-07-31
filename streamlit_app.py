@@ -22,7 +22,7 @@ if mensagem:
             model="gemini-3.6-flash",
             input=mens,
         )
-        st.session_state.luna_messages.append(interaction)
+        st.session_state.luna_messages.append(interaction.output_text)
         for ai in st.session_state.luna_messages:
             st.chat_message("ai").write(ai)
     
