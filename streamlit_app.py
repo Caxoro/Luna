@@ -1,7 +1,10 @@
 import streamlit as st
 
+messages = []
+
 st.title("🌙 Bem vindo ao chat Luna")
-messages = st.container(height=500)
+container = st.container(height=500)
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 if mensagem != "":
-   messages.chat_message("Voce: ").write(mensagem)
+   messages.append(mensagem)
+   container.chat_message("user").write(messages)
