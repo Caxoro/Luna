@@ -1,5 +1,5 @@
 import streamlit as st
-import openai as client
+from google import genai
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
