@@ -8,6 +8,6 @@ mensagem = st.chat_input("Digite sua mensagem para Luna")
 if mensagem:
     st.session_state.messages.append(mensagem)
     for mens in st.session_state.messages:
-        st.write(mens)
+        st.chat_message("user").write(mens)
     
     
