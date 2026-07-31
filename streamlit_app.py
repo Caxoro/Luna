@@ -21,6 +21,7 @@ if mensagem:
         interaction = client.interactions.create(
             model="gemini-3.6-flash",
             input=mens,
+            previous_interaction_id=previous_id,
         )
     st.session_state.luna_messages.append(interaction.output_text)
         for ai in st.session_state.luna_messages:
