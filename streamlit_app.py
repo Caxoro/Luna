@@ -9,6 +9,6 @@ mensagem = ""
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 if mensagem != "":
     st.session_state.messages.append(mensagem)
-    container.chat_message("user").write(st.session_state.messages)
+    container.chat_message("user").write(st.session_state.messages[0])
     
     
