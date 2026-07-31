@@ -1,6 +1,6 @@
 import streamlit as st
 
-messages = []
+messages = [""]
 
 st.title("🌙 Bem vindo ao chat Luna")
 container = st.container(height=500)
