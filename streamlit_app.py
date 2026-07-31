@@ -1,6 +1,10 @@
 import streamlit as st
 from google import genai
 
+client = genai.Client(api_key="GEMINI_API_KEY")
+
+if "luna_messages" not in st.session_state:
+    st.session_state.luna_messages = []
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
