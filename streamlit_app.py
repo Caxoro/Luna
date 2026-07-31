@@ -17,7 +17,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna")
 if mensagem:
     st.session_state.messages.append(mensagem)
     for mens in st.session_state.messages:
-        st.chat_message("user").write(mens[0])
+        st.chat_message("user").write(mens)
     interaction = client.interactions.create(
         model="gemini-3.6-flash", 
         input=mens,
