@@ -1,12 +1,14 @@
 import streamlit as st
 
-messages = [""]
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
 st.title("🌙 Bem vindo ao chat Luna")
 container = st.container(height=500)
 mensagem = ""
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 if mensagem != "":
-    container.chat_message("user").write(messages[0])
-    messages.append(mensagem)
+    st.session_state.messages += mensagem
+    container.chat_message("user").write(st.session_state.messages)
+    
     
