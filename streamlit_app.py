@@ -23,8 +23,8 @@ if mensagem:
             input=mens,
             previous_interaction_id=previous_id,
         )
-    st.session_state.luna_messages.append(interaction.output_text)
     for ai in st.session_state.luna_messages:
-        st.chat_message("ai").write(ai)
+        st.session_state.luna_messages.append(interaction.output_text)
+        st.chat_message("ai").write(interaction.output_text)
     
     
