@@ -1,4 +1,5 @@
 import streamlit as st
+import openai as client
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
