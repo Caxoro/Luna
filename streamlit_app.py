@@ -9,5 +9,5 @@ mensagem = ""
 if container(on_submit):
     mensagem = st.chat_input("Digite sua mensagem para Luna")
     if mensagem != "":
-        messages.append(mensagem)
+        messages += messages.append(mensagem)
         container.chat_message("user").write(mensagem)
