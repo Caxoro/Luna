@@ -6,5 +6,5 @@ st.title("🌙 Bem vindo ao chat Luna")
 container = st.container(height=500)
 mensagem = st.chat_input("Digite sua mensagem para Luna")
  if mensagem != "":
-    mmessages.append(mensagem)
-    container.chat_message("user").write(messages.value())
+     messages.append(mensagem)
+     container.chat_message("user").write(messages.value())
