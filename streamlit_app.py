@@ -5,9 +5,9 @@ if "messages" not in st.session_state:
 
 st.title("🌙 Luna - Assitente Virtual")
 mensagem = st.chat_input("Digite sua mensagem para Luna")
-messages.append(mensagem)
+st.session_state.messages.append(mensagem)
 if mensagem:
     for mens in st.session_state.messages:
-        st.write(mensagem)
+        st.write(mens)
     
     
