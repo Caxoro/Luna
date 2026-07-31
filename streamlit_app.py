@@ -4,7 +4,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 st.title("🌙 Bem vindo ao chat Luna")
-container = st.container(height=500)
+container = st.container(height=700)
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 
 if mensagem != "":
