@@ -22,7 +22,7 @@ if mensagem:
     )
     st.session_state.messages.append(interaction.output_text)
     for mens in st.session_state.messages:
-        st.chat_message("user").write(mens[0])
-        st.chat_message("ai").write(ai[1])
+        st.chat_message("user").write(mens[0,0])
+        st.chat_message("ai").write(mens[0,1])
     
     
