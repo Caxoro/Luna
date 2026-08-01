@@ -23,7 +23,7 @@ if mensagem:
 
     with st.chat_message("ai"):
        interaction = client.models.generate_content(
-           model="gemini-3.0-flash", 
+           model="gemini-3-flash", 
            contents=mensagem,
            
        )
