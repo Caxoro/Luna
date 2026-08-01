@@ -13,8 +13,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 for historico in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
+    with st.chat_message(historico["role"]):
+        st.write(historico["content"])
 
 st.title("🌙 Luna - Assitente Virtual")
 
