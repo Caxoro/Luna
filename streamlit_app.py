@@ -11,26 +11,17 @@ mensagem = st.chat_input("Digite sua mensagem para Luna")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
-if "mensagem" not in st.session_state:
-    st.session_state.mensagem = ""
-if "ai" not in st.session_state:
-    st.session_state.ai = ""
 
 st.title("🌙 Luna - Assitente Virtual")
 
-with st.chat_message("user",key="mensagem"):
-    if mensagem:
-        st.session_state.messages.append(mensagem)
-        st.session_state.mensagem = mensagem
-        st.write(st.session_state.mensagem)
-with st.chat_message("ai"):
-    if mensagem:
-        interaction = client.interactions.create(
-            model="gemini-3.5-flash", 
-            input=mensagem,
-            previous_interaction_id=previous_id,
-        )
-        st.session_state.messages.append(interaction.output_text)
-        st.write(st.session_state.ai)
-    
+if mensagem:
+    st.session_state.messages.append(mensagem)
+    st.chat_message("user").write(st.session_state.mensagem)
+    interaction = client.interactions.create(
+        model="gemini-3.5-flash", 
+        input=mensagem,
+        previous_interaction_id=previous_id,
+    )
+    st.session_state.messages.append(interaction.output_text)
+    st.chat_message("ai").write(interaction.output_text)
     
