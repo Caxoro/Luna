@@ -18,8 +18,7 @@ if mensagem:
     interaction = client.interactions.create(
         model="gemini-3.5-flash", 
         input=mensagem,
-        previous_interaction_id=st.session_state.messages.id,
-        previous_interaction_id=st.session_state.luna_messages.id,
+        previous_interaction_id=st.session_state.messages.id and st.session_state.luna_messages.id,
     )
     st.session_state.luna_messages.append(interaction.output_text)
     for mens in st.session_state.messages:
