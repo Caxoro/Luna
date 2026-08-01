@@ -25,7 +25,7 @@ if mensagem:
 
     with st.chat_message("ai"):
        interaction = client.interactions.create(
-           model="gemini-3.5-flash", 
+           model="gemini-2.5-flash", 
            input=mensagem,
            previous_interaction_id=previous_id,
        )
