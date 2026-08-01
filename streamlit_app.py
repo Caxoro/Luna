@@ -23,13 +23,14 @@ with st.chat_message("user"):
         st.session_state.messages.append(mensagem)
         st.session_state.mensagem = mensagem
         st.write(st.session_state.mensagem)
-        with st.chat_message("ai"):
-            interaction = client.interactions.create(
-                model="gemini-3.5-flash", 
-                input=mensagem,
-                previous_interaction_id=previous_id,
-            )
-            st.session_state.messages.append(interaction.output_text)
-            st.write(st.session_state.ai, key="ai")
+with st.chat_message("ai"):
+    if mensagem:
+        interaction = client.interactions.create(
+            model="gemini-3.5-flash", 
+            input=mensagem,
+            previous_interaction_id=previous_id,
+        )
+        st.session_state.messages.append(interaction.output_text)
+        st.write(st.session_state.ai)
     
     
