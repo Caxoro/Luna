@@ -1,6 +1,8 @@
 import streamlit as st
 from google import genai
 
+st.title("🌙 Luna - Assitente Virtual")
+
 chave = st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(api_key=chave)
@@ -15,8 +17,6 @@ if "messages" not in st.session_state:
 for historico in st.session_state.messages:
     with st.chat_message(historico["role"]):
         st.write(historico["content"])
-
-st.title("🌙 Luna - Assitente Virtual")
 
 if mensagem:
     with st.chat_message("user"):
