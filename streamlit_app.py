@@ -18,7 +18,7 @@ if "ai" not in st.session_state:
 
 st.title("🌙 Luna - Assitente Virtual")
 
-with st.chat_message:
+with st.container:
     if mensagem:
         st.session_state.messages.append(mensagem)
         st.session_state.mensagem = mensagem
