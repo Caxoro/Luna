@@ -7,6 +7,8 @@ client = genai.Client(api_key=chave)
 
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 
+previous_id = None
+
 interaction = client.interactions.create(
         model="gemini-3.5-flash", 
         input=mensagem,
@@ -19,8 +21,6 @@ if "mensagem" not in st.session_state:
     st.session_state.mensagem += mensagem
 if "ai" not in st.session_state:
     st.session_state.ai += interaction.output_text
-
-previous_id = None
 
 st.title("🌙 Luna - Assitente Virtual")
 
