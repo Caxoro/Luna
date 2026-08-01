@@ -5,6 +5,7 @@ chave = st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(api_key=chave)
 
+mensagem = ""
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 
 previous_id = None
