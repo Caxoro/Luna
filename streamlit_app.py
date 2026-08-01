@@ -7,8 +7,6 @@ chave = st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(api_key=chave)
 
-previous_id = None
-
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 
 if "messages" not in st.session_state:
@@ -27,7 +25,7 @@ if mensagem:
        interaction = client.interactions.create(
            model="gemini-3.6-flash", 
            input=mensagem,
-           previous_interaction_id=previous_id,
+           previous_interaction_id=st.session_state.messages,
        )
        st.write(interaction.output_text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
