@@ -7,7 +7,7 @@ client = genai.Client(api_key=chave)
 
 previous_id = None
 
-mensagem = st.chat_input("Digite sua mensagem para Luna")
+mensagem = st.chat_input("Digite sua mensagem para Luna", key="mensagem")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -28,7 +28,6 @@ if mensagem:
         previous_interaction_id=previous_id,
      )
      st.session_state.messages.append(interaction.output_text)
-     st.session_state.ai = interaction.output_text
-     st.chat_message("ai").write(st.session_state.ai)
+     st.chat_message("ai").write(st.session_state.ai, key="ai")
     
     
