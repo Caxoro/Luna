@@ -7,7 +7,7 @@ client = genai.Client(api_key=chave)
 
 previous_id = None
 
-
+mensagem = st.chat_input("Digite sua mensagem para Luna")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -17,7 +17,7 @@ if "ai" not in st.session_state:
     st.session_state.ai = ""
 
 st.title("🌙 Luna - Assitente Virtual")
-mensagem = st.chat_input("Digite sua mensagem para Luna")
+
 if mensagem:
      st.session_state.messages.append(mensagem)
      st.session_state.mensagem += mensagem
