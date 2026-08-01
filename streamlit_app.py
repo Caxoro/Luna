@@ -16,7 +16,7 @@ st.title("🌙 Luna - Assitente Virtual")
 
 if mensagem:
     st.session_state.messages.append(mensagem)
-    st.chat_message("user").write(st.session_state.mensagem)
+    st.chat_message("user").write(mensagem)
     interaction = client.interactions.create(
         model="gemini-3.5-flash", 
         input=mensagem,
