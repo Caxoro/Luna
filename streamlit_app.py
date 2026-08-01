@@ -5,8 +5,6 @@ chave = st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(api_key=chave)
 
-mensagem = st.chat_input("Digite sua mensagem para Luna")
-
 previous_id = None
 
 
@@ -20,6 +18,7 @@ if "ai" not in st.session_state:
 
 st.title("🌙 Luna - Assitente Virtual")
 while True:
+    mensagem = st.chat_input("Digite sua mensagem para Luna")
     if mensagem:
         st.session_state.messages.append(mensagem)
         st.session_state.mensagem += mensagem
