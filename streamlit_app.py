@@ -19,7 +19,7 @@ if mensagem:
     for mens in st.session_state.messages:
         st.chat_message("user").write(mens)
         interaction = client.interactions.create(
-            model="gemini-3.5-flash", 
+            model="gemini-2.5-flash", 
             input=mens,
             previous_interaction_id=previous_id,
         )
