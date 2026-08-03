@@ -34,4 +34,4 @@ if mensagem:
         st.write(interaction.output_text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     
-st.write(key="dados")
+st.write(st.session_state.dados)
