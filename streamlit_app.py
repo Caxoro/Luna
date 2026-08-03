@@ -31,7 +31,6 @@ if mensagem:
             st.session_state.historico.append({"type": "image", "data": mensagem["files"][0]})
         else:
             mensagem["files"][0] = ""
-            break
     with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.6-flash",
