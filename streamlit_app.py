@@ -12,13 +12,8 @@ mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
                          file_type=["jpg", "jpeg", "png"],)
 
-imagem = None
-
-for valor in mensagem["files"]:
-    if valor.startswith("name="):
-        imagem = valor.split("=")[1]
-        break
-    st.write(imagem)
+imagem = st.image(mensagem).link
+st.write(imagem)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -28,15 +23,14 @@ if "historico" not in st.session_state:
 for h in st.session_state.messages:
     with st.chat_message(h["role"]):
         st.write(h["content"])
-st.write(mensagem["files"])
 
 if mensagem:
     with st.chat_message("user"):
         st.write("Usuário: ",mensagem)
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
-        if mensagem["files"] != "":
-            st.session_state.historico.append({"type": "image", "uri": mensagem["files"]})
+        if mensagem["files"] != None:
+            st.session_state.historico.append({"type": "image", "uri": imagem})
         else:
             mensagem["files"][0] = ""
     with st.chat_message("ai"):
