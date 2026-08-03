@@ -23,7 +23,8 @@ if mensagem:
         st.write(mensagem)
     st.session_state.messages.append({"role": "user","content": mensagem})
     for m in st.session_state.messages:
-            memoria = (f"{m["role"]}: {m["content"]}")
+        memoria = (f"{m["role"]}: {m["content"]}")
+        st.write(memoria)
     with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.5-flash",
