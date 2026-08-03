@@ -11,11 +11,11 @@ client = genai.Client(api_key=chave)
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 
 if "messages" not in st.session_state:
-    st.session_state.messages = []
+    st.session_state.messages = {}
 
 for h in st.session_state.messages:
-    with st.chat_message(h["role"]):
-        st.write(h["content"])
+    with st.chat_message(h{"role"}):
+        st.write(h{"content"})
 
 if mensagem:
     with st.chat_message("user"):
