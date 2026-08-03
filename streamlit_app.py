@@ -32,7 +32,6 @@ if mensagem:
             "voce pode responder de maneira informal e usar girias, evite escrever textos muito longos e sempre que possivel resuma boa parte das respostas",
             store=False,
             input=st.session_state.historico,
-            tools=[{"type": "google_search"}],
         )
         for m in interaction.steps:
             st.session_state.historico.append(m.model_dump())
