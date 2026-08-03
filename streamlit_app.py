@@ -28,7 +28,7 @@ if "historico" not in st.session_state:
 for h in st.session_state.messages:
     with st.chat_message(h["role"]):
         st.write(h["content"])
-st.write(mensagem["files"][0])
+st.write(mensagem["files"])
 
 if mensagem:
     with st.chat_message("user"):
