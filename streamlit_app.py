@@ -17,6 +17,8 @@ for h in st.session_state.messages:
     with st.chat_message(h["role"]):
         st.write(h["content"])
 
+memoria = None
+
 if mensagem:
     with st.chat_message("user"):
         st.write(mensagem)
