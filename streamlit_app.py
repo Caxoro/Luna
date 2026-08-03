@@ -14,8 +14,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = {}
 
 for h, a in st.session_state.messages.items():
-    with st.chat_message(h[{"role"}]):
-        st.write(f"{a}")
+    with st.chat_message(st.session_state.messages(h)):
+        st.write(a)
 
 if mensagem:
     with st.chat_message("user"):
