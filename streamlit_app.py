@@ -14,8 +14,11 @@ if "messages" not in st.session_state:
     st.session_state.messages = {}
 
 for h in st.session_state.messages:
-    with st.chat_message(h["role"]):
-        st.write(h["content"])
+    h1 = st.session_state.messages.get("role")
+    for a = st.session_state.messages:
+        a1 = st.session_state.message.get("content")
+        with st.chat_message(st.write([h1])):
+            st.write(a1)
 
 if mensagem:
     with st.chat_message("user"):
@@ -30,5 +33,4 @@ if mensagem:
         )
         st.write(interaction.output_text)
     st.session_state.messages.update({"role": "ai","content": interaction.output_text})
-    a = st.session_state.messages.get("role")
-    st.write([a])
+    
