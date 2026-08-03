@@ -22,7 +22,7 @@ for h in st.session_state.messages:
 
 if mensagem:
     with st.chat_message("user"):
-        st.write(mensagem)
+        st.write("Usuário: ",mensagem)
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
     with st.chat_message("ai"):
@@ -35,7 +35,7 @@ if mensagem:
         )
         for m in interaction.steps:
             st.session_state.historico.append(m.model_dump())
-        st.write(interaction.steps[-1].content[0].text)
+        st.write("Luna: ", interaction.steps[-1].content[0].text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})                         
     
