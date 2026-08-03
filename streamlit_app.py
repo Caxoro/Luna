@@ -17,16 +17,14 @@ for h in st.session_state.messages:
     with st.chat_message(h["role"]):
         st.write(h["content"])
 
-memoria = None
 
 if mensagem:
     with st.chat_message("user"):
         st.write(mensagem)
     st.session_state.messages.append({"role": "user","content": mensagem})
-
-    with st.chat_message("ai"):
-        for m in st.session_state.messages:
+    for m in st.session_state.messages:
             memoria = (f"{m["role"]}: {m["content"]}")
+    with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.5-flash",
             store=False,
