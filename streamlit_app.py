@@ -24,7 +24,7 @@ if mensagem:
     with st.chat_message("user"):
         st.write(mensagem)
     st.session_state.messages.append({"role": "user","content": mensagem})
-    st.session_state.messages.append({"type": "user_input","content": [{"type": "text", "text": mensagem})
+    st.session_state.messages.append({"type": "user_input","content": [{"type": "text", "text": mensagem}})
     for m in st.session_state.messages:
         memoria = (f"{m["role"]}: {m["content"]}")
     with st.chat_message("ai"):
@@ -35,6 +35,6 @@ if mensagem:
         )
         st.write(interaction.output_text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
-    st.session_state.messages.append({"type": "luna","content": [{"type": "text", "text": interaction.output_text})                         
+    st.session_state.messages.append({"type": "luna","content": [{"type": "text", "text": interaction.output_text}})                         
     
 
