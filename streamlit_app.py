@@ -27,7 +27,7 @@ if mensagem:
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
     with st.chat_message("ai"):
         interaction = client.interactions.create(
-            model="gemini-3.5-flash",
+            model="gemini-3.6-flash",
             store=False,
             input=st.session_state.historico,
         )
