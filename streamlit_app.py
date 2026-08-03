@@ -32,4 +32,4 @@ if mensagem:
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     
 for h in st.session_state.messages:
-    st.write(h)
+    st.write(f"{h["role"]}: {h["content"]}")
