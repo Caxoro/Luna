@@ -32,4 +32,4 @@ if mensagem:
     st.session_state.messages.update({"role": "ai","content": interaction.output_text})
     
 for h in st.session_state.messages:
-    st.write(st.session_state.messages)
+    st.write(st.session_state.messages[h])
