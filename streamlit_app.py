@@ -15,7 +15,7 @@ if "messages" not in st.session_state:
 
 for h in st.session_state.messages:
     h1 = st.session_state.messages.get("role")
-    for a = st.session_state.messages:
+    for a in st.session_state.messages:
         a1 = st.session_state.message.get("content")
         with st.chat_message(st.write([h1])):
             st.write(a1)
