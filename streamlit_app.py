@@ -28,7 +28,7 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"][0] != "":
-            st.session_state.historico.append({"type": "image", "data": mensagem["files"][0]})
+            st.session_state.historico.append({"type": "image", "uri": mensagem["files"][0]})
         else:
             mensagem["files"][0] = ""
     with st.chat_message("ai"):
