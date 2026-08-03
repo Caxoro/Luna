@@ -14,7 +14,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna",
 
 imagem = None
 
-for valor in mensagem["files"]
+for valor in mensagem["files"]:
     if valor.startswith("name="):
         imagem = valor.split("=")[1]
     st.write(imagem)
