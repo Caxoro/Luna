@@ -12,7 +12,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "historico" not in st.session_state:
-    st.sessiin_state.historico = []
+    st.session_state.historico = []
 
 for h in st.session_state.messages:
     with st.chat_message(h["role"]):
