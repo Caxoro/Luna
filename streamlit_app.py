@@ -28,6 +28,8 @@ if mensagem:
     with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.6-flash",
+            system_instruction="Voce é luna uma assistente virtual gentil e bem humana, voce gosta da cor azul, e seu criador se chama Emerson",
+            "voce pode responder de maneira informal e usar girias, evite escrever textos muito longos e sempre que possivel resuma boa parte das respostas",
             store=False,
             input=st.session_state.historico,
         )
