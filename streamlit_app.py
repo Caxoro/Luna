@@ -13,7 +13,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna")
 if "messages" not in st.session_state:
     st.session_state.messages = {}
 
-for h, a in st.session_state.messages.items:
+for h, a in st.session_state.messages.items():
     with st.chat_message(f"{h}"):
         st.write(a)
 
