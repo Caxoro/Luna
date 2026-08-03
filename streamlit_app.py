@@ -11,16 +11,16 @@ client = genai.Client(api_key=chave)
 mensagem = st.chat_input("Digite sua mensagem para Luna")
 
 if "messages" not in st.session_state:
-    st.session_state.messages = {}
+    st.session_state.messages = []
 
-"""for h, a in st.session_state.messages.items():
-    with st.chat_message(st.session_state.messages(h)):
-        st.write(a)"""
+for h in st.session_state.messages:
+    with st.chat_message(h["role"]):
+        st.write(h["content"])
 
 if mensagem:
     with st.chat_message("user"):
         st.write(mensagem)
-    st.session_state.messages.update({"role": "user","content": mensagem})
+    st.session_state.messages.append({"role": "user","content": mensagem})
 
     with st.chat_message("ai"):
         interaction = client.interactions.create(
@@ -29,7 +29,7 @@ if mensagem:
             input=mensagem,
         )
         st.write(interaction.output_text)
-    st.session_state.messages.update({"role": "ai","content": interaction.output_text})
+    st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     
 for h in st.session_state.messages:
-    st.write(st.session_state.messages[h])
+    st.write(st.session_state.messages)
