@@ -25,16 +25,16 @@ if mensagem:
         st.write(mensagem)
     st.session_state.messages.append({"role": "user","content": mensagem})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
-    for m in st.session_state.historico:
-        memoria = (f"{m}")
-        st.write(memoria)
+    for m in interaction.steps:
+        st.session_state.historico.append(m.model_dump())
+        st.write(m)
     with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.5-flash",
             store=False,
-            input=memoria,
+            input=st.session_state.historico,
         )
-        st.write(interaction.output_text)
+        st.write(interaction.steps[-1].content[0].text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     st.session_state.historico.append({"type": "luna","content": [{"type": "text", "text": interaction.output_text}]})                         
     
