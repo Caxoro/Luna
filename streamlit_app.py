@@ -25,8 +25,8 @@ if mensagem:
         st.write(mensagem)
     st.session_state.messages.append({"role": "user","content": mensagem})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
-    for m in st.session_state.messages:
-        memoria = (f"{m["role"]}: {m["content"]}")
+    for m in st.session_state.historico:
+        memoria = (f"{m}")
         st.write(memoria)
     with st.chat_message("ai"):
         interaction = client.interactions.create(
