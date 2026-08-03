@@ -14,7 +14,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 if "dados" not in st.session_state:
-    st.session_state.dados = json.loads(st.session_state.messages)
+    st.session_state.dados = json.loads(st.write(st.session_state.messages))
 
 for h in st.session_state.messages:
     with st.chat_message(h["role"]):
