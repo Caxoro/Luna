@@ -30,7 +30,7 @@ if mensagem:
         if mensagem["files"][0] != "":
             st.session_state.historico.append({"type": "image", "data": mensagem["files"][0]})
         else:
-            mensagem["files"][0] = "":
+            mensagem["files"][0] = ""
             break
     with st.chat_message("ai"):
         interaction = client.interactions.create(
