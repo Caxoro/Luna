@@ -30,4 +30,5 @@ if mensagem:
         )
         st.write(interaction.output_text)
     st.session_state.messages.update({"role": "ai","content": interaction.output_text})
-    st.write(st.session_state.messages.get("role"))
+    a = st.session_state.messages.get("role")
+    st.write([a])
