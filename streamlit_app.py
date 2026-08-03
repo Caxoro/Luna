@@ -12,6 +12,13 @@ mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
                          file_type=["jpg", "jpeg", "png"],)
 
+imagem = None
+
+for valor in mensagem["files"]
+    if valor.startswith("name="):
+        imagem = valor.split("=")[1]
+    st.write(imagem)
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "historico" not in st.session_state:
