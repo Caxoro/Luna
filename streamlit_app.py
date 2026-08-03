@@ -20,7 +20,7 @@ for h in st.session_state.messages:
 if mensagem:
     with st.chat_message("user"):
         st.write(mensagem)
-    st.session_state.messages.append({"role": "user","content": mensagem})
+    st.session_state.messages.update("role": "user","content": mensagem)
 
     with st.chat_message("ai"):
         interaction = client.interactions.create(
@@ -29,7 +29,7 @@ if mensagem:
             input=mensagem,
         )
         st.write(interaction.output_text)
-    st.session_state.messages.append({"role": "ai","content": interaction.output_text})
+    st.session_state.messages.update("role": "ai","content": interaction.output_text)
 
 
 st.write(st.session_state.messages.get("role"))
