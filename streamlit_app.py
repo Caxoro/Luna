@@ -13,7 +13,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna")
 if "messages" not in st.session_state:
     st.session_state.messages = {}
 
-for h in st.session_state.messages:
+for h in range(st.session_state.messages):
     h1 = st.session_state.messages.get("role")
     a1 = st.session_state.messages.get("content")
     with st.chat_message(f"{h1}"):
