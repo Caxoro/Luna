@@ -24,7 +24,7 @@ if mensagem:
     with st.chat_message("ai"):
        interaction = client.interactions.create(
            model="gemini-3.6-flash",
-           store=False
+           store=false,
            input=historico,
        )
        st.write(interaction.output_text)
