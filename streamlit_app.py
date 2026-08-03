@@ -23,8 +23,9 @@ if mensagem:
 
     with st.chat_message("ai"):
        interaction = client.interactions.create(
-           model="gemini-3.6-flash", 
-           input=mensagem,
+           model="gemini-3.6-flash",
+           store=False
+           input=historico,
        )
        st.write(interaction.output_text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
