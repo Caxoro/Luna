@@ -27,7 +27,7 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
-            imagem = st.image(mensagem["files"]).file_uploader
+            imagem = st.file_uploader(mensagem["files"])
             st.write(imagem)
             st.session_state.historico.append({"type": "image", "uri": imagem})
         else:
