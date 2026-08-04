@@ -37,7 +37,7 @@ if mensagem:
             with open(caminho_completo, "wb") as f:
                 f.write(imagem.read())
             st.write(caminho_completo)
-            arquivo = client.files.upload(file=f"{caminho_completo}")
+            arquivo = client.files.upload(file=f"/{caminho_completo}")
             st.session_state.historico.append({"type": "image", "uri": arquivo.uri, "mime_type": arquivo.mime_type})
         else:
             mensagem["files"] = None
