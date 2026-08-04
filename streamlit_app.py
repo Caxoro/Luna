@@ -1,5 +1,4 @@
 import streamlit as st
-from PIL import image
 from google import genai
 
 st.title("🌙 Luna - Assitente Virtual")
