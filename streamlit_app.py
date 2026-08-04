@@ -28,7 +28,7 @@ if mensagem:
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
-            arquivo = client.files.upload(file=f"/_stcore/upload_file/4b3acbb3-4dec-497a-8d5f-2f0c7447e4ba/9a8cbfc9-a7d2-402d-8428-8864142ab308/{mensagem.name}")
+            arquivo = client.files.upload(file=f"/_stcore/upload_file/4b3acbb3-4dec-497a-8d5f-2f0c7447e4ba/9a8cbfc9-a7d2-402d-8428-8864142ab308/{imagem.name}")
             st.session_state.historico.append({"type": "image", "uri": arquivo.uri, "mime_type": arquivo.mime_type})
         else:
             mensagem["files"] = None
