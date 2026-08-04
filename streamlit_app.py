@@ -28,7 +28,7 @@ if mensagem:
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
-            bytes_imagem = mensagem.read()
+            bytes_imagem = mensagem.read
             imagem_pronta = types.Part.from_bytes(
                 data=bytes_imagem,
                 mime_type=mensagem.type
