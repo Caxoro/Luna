@@ -31,7 +31,7 @@ if mensagem:
             bytes_imagem = imagem.read()
             imagem_pronta = types.Part.from_bytes(
                 data=bytes_imagem,
-                myme_type=imagem.type
+                mime_type=imagem.type
             )
             st.session_state.historico.append(imagem_pronta)
         else:
