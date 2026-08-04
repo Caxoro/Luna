@@ -27,11 +27,11 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
-            imagem = st.image(mensagem["files"].path)
+            imagem = st.image(mensagem["files"])
             st.write(imagem)
             st.session_state.historico.append({"type": "image", "uri": imagem})
         else:
-            mensagem["files"][0] = None
+            mensagem["files"] = None
     with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.6-flash",
