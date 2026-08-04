@@ -29,7 +29,7 @@ if mensagem:
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
             arquivo = imagem.getvalue()
-            st.session_state.historico.append({"type": "image", "data": base64.b64encode(arquivo).decode('utf-8'), "mime_type": imagem.mime_type})
+            st.session_state.historico.append({"type": "image", "data": base64.b64encode(arquivo).decode('utf-8'), "mime_type": "image/jpeg"})
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
