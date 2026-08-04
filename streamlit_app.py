@@ -24,13 +24,12 @@ for h in st.session_state.messages:
 if mensagem:
     with st.chat_message("user"):
         st.write("Usuário: ",mensagem["text"])
-        st.write(dir(mensagem))
+        st.write(dir(st.file_uploader))
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
-            arquivo = imagem.getvalue()
-            st.session_state.historico.append({"type": "image", "data": base64.b64encode(arquivo).decode('utf-8'), "mime_type": "image/jpeg"})
+            st.session_state.historico.append({"type": "image", "data": base64.b64encode(imagem).decode('utf-8'), "mime_type": "image/jpeg"})
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
