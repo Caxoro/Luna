@@ -38,7 +38,7 @@ if mensagem:
                 data=dados_finais_bytes,
                 mime_type=imagem.type
             )
-            st.session_state.historico.append(imagem_pil)
+            st.session_state.historico.append(imagem_validada_gemini)
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
