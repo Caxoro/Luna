@@ -12,7 +12,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
                          file_type=["jpg", "jpeg", "png"],)
 
-imagem = dir(mensagem["files"])
+imagem = dir(st.image(mensagem["files"]))
 st.write(imagem)
 
 if "messages" not in st.session_state:
