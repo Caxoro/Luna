@@ -27,11 +27,11 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
-            imagem = mensagem["files"][0]
+            imagem = mensagem["files"]
             caminho = None
             for item in imagem:
-              if item.startswith("name="):
-                caminho = item.split("=")[1]
+              if item.startswith('name='):
+                caminho = item.split('=')[1]
                 break
             st.write(caminho)
             st.session_state.historico.append({"type": "image", "uri": caminho})
