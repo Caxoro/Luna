@@ -28,8 +28,7 @@ if mensagem:
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
-            st.write(imagem.name)
-            st.session_state.historico.append({"type": "image", "uri": imagem})
+            st.session_state.historico.append({"type": "image", "uri": imagem.name})
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
