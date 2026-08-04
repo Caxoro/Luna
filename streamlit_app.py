@@ -13,7 +13,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna",
                          file_type=["jpg", "jpeg", "png"],)
 
 imagem = dir(st.image(mensagem["files"]))
-st.write(imagem)
+
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -30,6 +30,7 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
+            st.write(imagem)
             st.session_state.historico.append({"type": "image", "uri": imagem})
         else:
             mensagem["files"][0] = None
