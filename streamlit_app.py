@@ -9,7 +9,7 @@ chave = st.secrets["GEMINI_API_KEY"]
 client = genai.Client(api_key=chave)
 
 mensagem = st.chat_input("Digite sua mensagem para Luna",
-                         accept_file=True,
+                         accept_file="Luna",
                          file_type=["jpg", "jpeg", "png"],)
 
 if "messages" not in st.session_state:
