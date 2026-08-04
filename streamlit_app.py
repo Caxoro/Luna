@@ -29,7 +29,7 @@ if mensagem:
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
-            st.write(imagem._file_urls)
+            st.write(imagem.read)
             st.session_state.historico.append({"type": "image", "data": base64.b64encode(imagem).decode('utf-8'), "mime_type": "image/jpeg"})
         else:
             mensagem["files"] = None
