@@ -1,5 +1,5 @@
 import streamlit as st
-import json
+import base64
 from google import genai
 
 st.title("🌙 Luna - Assitente Virtual")
