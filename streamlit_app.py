@@ -24,7 +24,7 @@ for h in st.session_state.messages:
 if mensagem:
     with st.chat_message("user"):
         st.write("Usuário: ",mensagem)
-        st.write(mensagem).files
+        st.write(mensagem).values()
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
