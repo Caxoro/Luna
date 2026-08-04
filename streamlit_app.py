@@ -12,7 +12,7 @@ mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
                          file_type=["jpg", "jpeg", "png"],)
 
-imagem = st.image(mensagem["files"][0])
+imagem = dir(mensagem["files"])
 st.write(imagem)
 
 if "messages" not in st.session_state:
@@ -32,7 +32,7 @@ if mensagem:
         if mensagem["files"] != None:
             st.session_state.historico.append({"type": "image", "uri": imagem})
         else:
-            mensagem["files"][0] = ""
+            mensagem["files"][0] = None
     with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.6-flash",
