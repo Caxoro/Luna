@@ -24,12 +24,12 @@ for h in st.session_state.messages:
 if mensagem:
     with st.chat_message("user"):
         st.write("Usuário: ",mensagem["text"])
-        st.write(mensagem["files"][0])
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
-            st.session_state.historico.append({"type": "image", "data": base64.b64encode(imagem.getvalue()).decode('utf-8'), "mime_type": "image/jpeg"})
+            arquivo = client.files.upload(file=f"/_stcore/upload_file/4b3acbb3-4dec-497a-8d5f-2f0c7447e4ba/9a8cbfc9-a7d2-402d-8428-8864142ab308/{mensagem.name}")
+            st.session_state.historico.append({"type": "image", "uri": arquivo.uri, "mime_type": arquivo.mime_type})
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
