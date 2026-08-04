@@ -33,8 +33,8 @@ if mensagem:
               if item.startswith('name='):
                 caminho = item.split('=')[1]
                 break
-            st.write(caminho)
-            st.session_state.historico.append({"type": "image", "uri": caminho})
+            st.write(imagem)
+            st.session_state.historico.append({"type": "image", "uri": imagem})
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
