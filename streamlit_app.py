@@ -36,6 +36,7 @@ if mensagem:
             caminho_completo = os.path.join(pasta_imagens, imagem.name)
             with open(caminho_completo, "wb") as f:
                 f.write(imagem.read())
+            st.write(caminho_completo)
             arquivo = client.files.upload(file=f"{caminho_completo}")
             st.session_state.historico.append({"type": "image", "uri": arquivo.uri, "mime_type": arquivo.mime_type})
         else:
