@@ -26,7 +26,7 @@ if mensagem:
         st.write("Usuário: ",mensagem["text"])
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
-        if hasattr(mensagem, "type") and "image" in mensagem.type:
+        if mensagem["files"] != None:
             imagem = mensagem["files"][0]
             bytes_imagem = mensagem.read()
             imagem_pronta = types.Part.from_bytes(
