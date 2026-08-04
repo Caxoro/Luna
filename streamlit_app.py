@@ -1,5 +1,5 @@
 import streamlit as st
-import os
+from PIL import image
 from google import genai
 
 st.title("🌙 Luna - Assitente Virtual")
@@ -11,11 +11,6 @@ client = genai.Client(api_key=chave)
 mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
                          file_type=["jpg", "jpeg", "png"],)
-
-pasta_imagens = "imagens"
-
-if not os.path.exists(pasta_imagens):
-    os.makedirs(pasta_imagens)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -33,12 +28,12 @@ if mensagem:
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem["files"][0]
-            caminho_completo = os.path.join(pasta_imagens, imagem.name)
-            with open(caminho_completo, "wb") as f:
-                f.write(imagem.read())
-            st.write(caminho_completo)
-            arquivo = client.files.upload(file=f"/{caminho_completo}")
-            st.session_state.historico.append({"type": "image", "uri": arquivo.uri, "mime_type": arquivo.mime_type})
+            bytes_imagem = imagem.read()
+            imagem_pronta = types.Part.from_bytes(
+                data=bytes_imagem,
+                myme_types=imagem.type
+            )
+            st.session_state.historico.append(imagem_pronta)
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
