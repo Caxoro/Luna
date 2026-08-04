@@ -27,8 +27,8 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
-            imagem = mensagem["files"][0]
-            imagem_pil = Image.open(mensagem)
+            imagem = mensagem.files[0]
+            imagem_pil = Image.open(imagem)
             st.session_state.historico.append(imagem_pil)
         else:
             mensagem["files"] = None
