@@ -31,8 +31,8 @@ if mensagem:
             imagem = mensagem.files[0]
             bytes_imagem = imagem.getvalue()
             imagem_validada_gemini = {
-                data=bytes_imagem,
-                mime_type=imagem.type
+                "data": bytes_imagem,
+                "mime_type": imagem.type,
             }
             st.session_state.historico.append(imagem_validada_gemini)
         else:
