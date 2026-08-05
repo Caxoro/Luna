@@ -29,7 +29,7 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
-            imagem = mensagem.files[0]
+            imagem = mensagem.files
             imagem_pil = Image.open(imagem)
             
             buffer_bytes = io.BytesIO()
@@ -38,7 +38,7 @@ if mensagem:
             dados_finais_bytes = buffer_bytes.getvalue()
             imagem_validada_gemini = types.Part.from_bytes(
                 data=dados_finais_bytes,
-                mime_type=mensagem.type
+                mime_type=imagem.type
             )
             st.session_state.historico.append(imagem_validada_gemini)
         else:
