@@ -26,8 +26,8 @@ for h in st.session_state.messages:
 if mensagem:
     with st.chat_message("user"):
         st.write("Usuário: ",mensagem["text"])
-        st.session_state.messages.append({"role": "user","content": mensagem})
-        st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
+        st.session_state.messages.append({"role": "user","content": mensagem["text"]})
+        st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem["text"]}]})
         if mensagem["files"] != None:
             imagem = mensagem.files[0]
             bytes_imagem = imagem.getvalue()
