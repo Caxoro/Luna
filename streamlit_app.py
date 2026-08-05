@@ -38,7 +38,7 @@ if mensagem:
             dados_finais_bytes = buffer_bytes.getvalue()
             imagem_validada_gemini = types.Part.from_bytes(
                 data=dados_finais_bytes,
-                mime_type=imagem.type
+                mime_type=mensagem.type
             )
             st.session_state.historico.append(imagem_validada_gemini)
         else:
