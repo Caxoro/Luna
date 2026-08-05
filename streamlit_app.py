@@ -31,10 +31,10 @@ if mensagem:
             imagem = mensagem.files[0]
             bytes_imagem = imagem.getvalue()
             st.write(bytes_imagem)
-            imagem_validada_gemini = types.Part.from_bytes(
+            imagem_validada_gemini = {
                 data=bytes_imagem,
                 mime_type=imagem.type
-            )
+            }
             st.session_state.historico.append(imagem_validada_gemini)
         else:
             mensagem["files"] = None
