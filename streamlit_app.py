@@ -29,7 +29,7 @@ if mensagem:
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem.files
-            bytes_imagem = imagem.read()
+            bytes_imagem = imagem.getvalue()
             st.write(bytes_imagem)
             imagem_validada_gemini = types.Part.from_bytes(
                 data=bytes_imagem,
