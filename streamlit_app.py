@@ -1,5 +1,6 @@
 import streamlit as st
 import io
+import base64
 from google import genai
 from google.genai import types
 
@@ -30,8 +31,11 @@ if mensagem:
         if mensagem["files"] != None:
             imagem = mensagem.files[0]
             bytes_imagem = imagem.getvalue()
+            image_b64 = base64.b64encode(bytes_imagem).decode("utf-8")
+      
             imagem_validada_gemini = {
-                "data": bytes_imagem,
+                "type": "image",
+                "data": image_b64,
                 "mime_type": imagem.type,
             }
             st.session_state.historico.append(imagem_validada_gemini)
