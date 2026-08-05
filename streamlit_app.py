@@ -50,8 +50,6 @@ if mensagem:
             store=False,
             input=st.session_state.historico,
         )
-        for m in interaction.steps:
-            st.session_state.historico.append(m.model_dump())
         st.write("Luna: ", interaction.steps[-1].content[0].text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})                         
