@@ -30,7 +30,6 @@ if mensagem:
         if mensagem["files"] != None:
             imagem = mensagem.files[0]
             bytes_imagem = imagem.getvalue()
-            st.write(bytes_imagem)
             imagem_validada_gemini = {
                 data=bytes_imagem,
                 mime_type=imagem.type
