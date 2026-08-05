@@ -36,7 +36,7 @@ if mensagem:
       
             imagem_validada_gemini = {
                 "type": "image",
-                "data": bytes_imagem,
+                "data": image_b64,
                 "mime_type": tipo_imagem,
             }
             st.session_state.historico.append(imagem_validada_gemini)
