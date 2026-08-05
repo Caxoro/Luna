@@ -34,12 +34,11 @@ if mensagem:
             tipo_imagem = str(imagem.type)
             image_b64 = base64.b64encode(bytes_imagem).decode("utf-8")
       
-            imagem_validada_gemini = ({
+            st.session_state.historico.append({
                 "type": "image",
                 "data": image_b64,
                 "mime_type": tipo_imagem,
             })
-            st.session_state.historico.append(imagem_validada_gemini)
         else:
             mensagem["files"] = None
     with st.chat_message("ai"):
