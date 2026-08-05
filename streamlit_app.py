@@ -31,12 +31,13 @@ if mensagem:
         if mensagem["files"] != None:
             imagem = mensagem.files[0]
             bytes_imagem = imagem.getvalue()
+            tipo_imagem = str(imagem.type)
             image_b64 = base64.b64encode(bytes_imagem).decode("utf-8")
       
             imagem_validada_gemini = {
                 "type": "image",
                 "data": image_b64,
-                "mime_type": imagem.type,
+                "mime_type": tipo_imagem,
             }
             st.session_state.historico.append(imagem_validada_gemini)
         else:
