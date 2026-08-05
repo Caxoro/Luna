@@ -29,9 +29,9 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem["text"]})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem["text"]}]})
         if mensagem["files"] != None:
-            imagem = mensagem.files[0]
+            imagem = mensagem.files
             bytes_imagem = imagem.getvalue()
-            tipo_imagem = str(mensagem.type)
+            tipo_imagem = str(imagem.type)
             image_b64 = base64.b64encode(bytes_imagem).decode("utf-8")
       
             imagem_validada_gemini = ({
