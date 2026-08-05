@@ -2,7 +2,6 @@ import streamlit as st
 import io
 from google import genai
 from google.genai import types
-from PIL import Image
 
 st.title("🌙 Luna - Assitente Virtual")
 
@@ -30,14 +29,8 @@ if mensagem:
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem}]})
         if mensagem["files"] != None:
             imagem = mensagem.files
-            imagem_pil = Image.open(imagem)
-            
-            buffer_bytes = io.BytesIO()
-          
-            imagem_pil.save(buffer_bytes, format=imagem_pil.format if imagem_pil.format else "JPEG")
-            dados_finais_bytes = buffer_bytes.getvalue()
             imagem_validada_gemini = types.Part.from_bytes(
-                data=dados_finais_bytes,
+                data=imagem.read(),
                 mime_type=imagem.type
             )
             st.session_state.historico.append(imagem_validada_gemini)
