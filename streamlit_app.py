@@ -51,6 +51,7 @@ if mensagem:
         )
         st.write("Luna: ", interaction.steps[-1].content[0].text)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
-    st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})                         
+    st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})              
+    st.write(st.session_state.historico)
     
 
