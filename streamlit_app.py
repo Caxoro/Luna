@@ -39,11 +39,11 @@ if mensagem:
                     "mime_type": "image/jpeg",
                 }]})
                 mensagem.files = []
-          else:
-              mensagem.files = []
-              st.write("Usuário: ",mensagem["text"])
-              st.session_state.messages.append({"role": "user","content": mensagem.text})
-              st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem.text}]})
+         else:
+             mensagem.files = []
+             st.write("Usuário: ",mensagem["text"])
+             st.session_state.messages.append({"role": "user","content": mensagem.text})
+             st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem.text}]})
     with st.chat_message("ai"):
         interaction = client.interactions.create(
             model="gemini-3.6-flash",
