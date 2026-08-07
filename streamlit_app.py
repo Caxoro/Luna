@@ -38,6 +38,7 @@ if mensagem:
                     "data": image_b64,
                     "mime_type": "image/jpeg",
                 }]})
+                mensagem.files = []
             else:
                 mensagem.files = []
                 st.write("Usuário: ",mensagem["text"])
