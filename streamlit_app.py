@@ -32,6 +32,7 @@ if mensagem:
             imagem = mensagem.files[0]
             bytes_imagem = imagem.getvalue()
             tipo_imagem = str(imagem.type)
+            st.write(tipo_imagem)
             image_b64 = base64.b64encode(bytes_imagem).decode("utf-8")
       
             st.session_state.historico.append({
