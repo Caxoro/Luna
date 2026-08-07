@@ -38,9 +38,9 @@ if mensagem:
                     "data": image_b64,
                     "mime_type": "image/jpeg",
                 }]})
-                mensagem.files = []
+                mensagem.files = [""]
         else:
-            mensagem.files = []
+            mensagem.files = [""]
             st.write("Usuário: ",mensagem["text"])
             st.session_state.messages.append({"role": "user","content": mensagem.text})
             st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem.text}]})
