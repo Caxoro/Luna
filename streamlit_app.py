@@ -37,7 +37,7 @@ if mensagem:
             st.session_state.historico.append({
                 "type": "image",
                 "data": image_b64,
-                "mime_type": f"{tipo_imagem}",
+                "mime_type": "image/jpeg",
             })
         else:
             mensagem["files"] = None
