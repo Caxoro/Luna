@@ -39,7 +39,6 @@ if mensagem:
                     "data": image_b64,
                     "mime_type": "image/jpeg",
                 })
-                st.write(st.session_state.historico)
             else:
                 mensagem.files = []
     with st.chat_message("ai"):
