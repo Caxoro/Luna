@@ -29,7 +29,7 @@ if mensagem:
         st.session_state.messages.append({"role": "user","content": mensagem.text})
         st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem.text}]})
         if mensagem.files != [""]:
-            imagem = mensagem.files
+            imagem = str(mensagem.files)
             st.write(imagem)
             bytes_imagem = imagem.getvalue()
             tipo_imagem = str(imagem.type)
