@@ -32,7 +32,7 @@ if mensagem:
                 image_b64 = base64.b64encode(bytes_imagem).decode("utf-8")
                 st.session_state.messages.append({"role": "user","content": mensagem.text})
       
-                st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem.text},
+                st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": mensagem.text}]},
                 {
                     "type": "image",
                     "data": image_b64,
