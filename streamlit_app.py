@@ -51,6 +51,7 @@ if mensagem:
             system_instruction="Voce é luna uma assistente virtual gentil e bem humana, voce gosta da cor azul, e seu criador se chama Emerson"
             "voce pode responder de maneira informal e usar girias, evite escrever textos muito longos e sempre que possivel resuma boa parte das respostas",
             store=False,
+            tools=[{"type": "google_search"}],
             input=st.session_state.historico,
         )
         st.write("Luna: ", interaction.steps[-1].content[0].text)
