@@ -29,7 +29,6 @@ if mensagem:
             for imagem in mensagem.files:
                 bytes_imagem = imagem.getvalue()
                 tipo_imagem = str(imagem.type)
-                st.write(tipo_imagem)
                 image_b64 = base64.b64encode(bytes_imagem).decode("utf-8")
                 st.write("Usuário: ",mensagem["text"])
                 st.session_state.messages.append({"role": "user","content": mensagem.text})
@@ -38,7 +37,7 @@ if mensagem:
                 {
                     "type": "image",
                     "data": image_b64,
-                    "mime_type": "image/jpeg",
+                    "mime_type": f"{tipo_imagem}",
                 }]})
                 mensagem.files = [""]
         else:
