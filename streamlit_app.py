@@ -16,8 +16,8 @@ voice = ""
 output_voice = "luna_voz.mp3"
 
 voices = await edge_tts.list_voices()
-    for v in voices:
-        st.write(v["ShortName"])
+for v in voices:
+    st.write(v["ShortName"])
 
 mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
