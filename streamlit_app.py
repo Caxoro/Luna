@@ -15,7 +15,7 @@ client = genai.Client(api_key=chave)
 voice = ""
 output_voice = "luna_voz.mp3"
 
-st.write(help(edge_tts))
+st.write(dir(edge_tts))
 
 mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
