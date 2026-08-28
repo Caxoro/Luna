@@ -14,9 +14,9 @@ client = genai.Client(api_key=chave)
 
 voice = "pt-BR-FranciscaNeural"
 output_voice = "luna_voz.mp3"
-
+fala = ""
 async def voz():
-    communicate = edge_tts.Communicate(interaction.steps[-1].content[0].text, voice)
+    communicate = edge_tts.Communicate(fala, voice)
     await communicate.save(output_voice)
 
 mensagem = st.chat_input("Digite sua mensagem para Luna",
@@ -63,6 +63,7 @@ if mensagem:
             input=st.session_state.historico,
         )
         st.write("Luna: ", interaction.steps[-1].content[0].text)
+        fala = interaction.steps[-1].content[0].text
         asyncio.run(voz())
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})              
