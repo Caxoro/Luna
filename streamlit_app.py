@@ -20,6 +20,8 @@ async def voz():
     for v in voices:
         st.write(v["ShortName"])
 
+asyncio.run(voz())
+
 mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
                          file_type=["jpg", "jpeg", "png"],)
