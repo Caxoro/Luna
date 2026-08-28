@@ -33,8 +33,6 @@ if "historico" not in st.session_state:
 for h in st.session_state.messages:
     with st.chat_message(h["role"]):
         st.write(h["content"])
-        if st.chat_message(h["role"]) == st.chat_message(["ai"]):
-            st.audio(output_voice, autoplay=True)
 
 if mensagem:
     with st.chat_message("user"):
