@@ -4,3 +4,4 @@ starlette<=0.35.1
 fastapi<=0.109.0
 asyncio
 edge_tts
+nest_asyncio
