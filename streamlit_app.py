@@ -1,6 +1,8 @@
 import streamlit as st
 import io
 import base64
+import asyncio
+import edge_tts
 from google import genai
 from google.genai import types
 
@@ -9,6 +11,9 @@ st.title("🌙 Luna - Assitente Virtual")
 chave = st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(api_key=chave)
+
+voice = ""
+output_voice = "luna_voz.mp3"
 
 mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
@@ -54,6 +59,9 @@ if mensagem:
             input=st.session_state.historico,
         )
         st.write("Luna: ", interaction.steps[-1].content[0].text)
+      
+        communicate = edge_tts.Communicate(interaction.steps[-1].content[0].text, voice)
+        await communicate.save(output_voice)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})              
     
