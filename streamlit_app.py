@@ -15,7 +15,7 @@ client = genai.Client(api_key=chave)
 voice = ""
 output_voice = "luna_voz.mp3"
 
-async def voz:
+async def voz()
 voices = await edge_tts.list_voices()
 for v in voices:
     st.write(v["ShortName"])
