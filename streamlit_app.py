@@ -66,9 +66,7 @@ if mensagem:
         )
         st.write("Luna: ", interaction.steps[-1].content[0].text)
         fala = interaction.steps[-1].content[0].text
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(voz(fala))
+        asyncio.run(voz(fala))
         st.audio(output_voice, autoplay=True)
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})              
