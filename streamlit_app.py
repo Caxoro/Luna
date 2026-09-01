@@ -13,14 +13,6 @@ chave = st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(api_key=chave)
 
-"""nest_asyncio.apply()
-
-voice = "pt-BR-FranciscaNeural"
-output_voice = "luna_voz.mp3"
-async def voz(texto):
-    communicate = edge_tts.Communicate(texto, voice)
-    await communicate.save(output_voice)"""
-
 mensagem = st.chat_input("Digite sua mensagem para Luna",
                          accept_file=True,
                          file_type=["jpg", "jpeg", "png"],)
@@ -65,9 +57,6 @@ if mensagem:
             input=st.session_state.historico,
         )
         st.write("Luna: ", interaction.steps[-1].content[0].text)
-        """fala = interaction.steps[-1].content[0].text
-        asyncio.run(voz(fala))
-        st.audio(output_voice, autoplay=True)"""
     st.session_state.messages.append({"role": "ai","content": interaction.output_text})
     st.session_state.historico.append({"type": "user_input","content": [{"type": "text", "text": interaction.output_text}]})              
     
